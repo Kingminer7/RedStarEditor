@@ -1,0 +1,20 @@
+{
+  "name": "red-star-editor",
+  "version": "0.1.0",
+  "description": "An editor for Super Mario Galaxy 1 and 2",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "nodemon --exec electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kingminer7/RedStarEditor.git"
+  },
+  "author": "km7dev",
+  "license": "SEE FILE 'LICENSE'",
+  "bugs": {
+    "url": "https://github.com/Kingminer7/RedStarEditor/issues"
+  },
+  "homepage": "https://github.com/Kingminer7/RedStarEditor#readme"
+}
