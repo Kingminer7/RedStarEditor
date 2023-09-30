@@ -7,4 +7,23 @@
   flex-direction: column;
   justify-content: flex-start;
   bottom:0;
+  left:50%;
+  transform: translateX(-50%);
+}
+
+.titleContainer {
+  width: 365px;
+  height: 200px;
+  display: flex;
+  position: fixed;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  top:50px;
+  left:50%;
+  transform: translateX(-50%);
+  font-size: 64px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #a60000;
 }

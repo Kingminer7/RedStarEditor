@@ -11,49 +11,51 @@ module.exports = {
       directory = dialog.showOpenDialogSync({
         properties: ["openDirectory"],
       });
-    else dir = preChosen;
+    else directory = preChosen;
+    if(directory == undefined) return {filePaths: [undefined], game: false, cancelled: true};
+    directory = { filePaths: directory, game: 0, cancelled: false };
     index.fileLocation = directory.filePaths[0];
-    if (!dir.cancelled) {
-      dir.game = 0;
+    if (!directory.cancelled) {
+      directory.game = 0;
       if (!fs.existsSync(path.join(index.fileLocation, "StageData"))) {
-        dir.game = false;
-        return dir;
+        directory.game = false;
+        return directory;
       }
       if (!fs.existsSync(path.join(index.fileLocation, "SystemData"))) {
-        dir.game = false;
-        return dir;
+        directory.game = false;
+        return directory;
       }
       if (
         fs.existsSync(
           path.join(index.fileLocation, "StageData", "ObjNameTable.arc")
         )
       )
-        dir.game = 1;
+        directory.game = 1;
       if (
         fs.existsSync(
           path.join(index.fileLocation, "SystemData", "ObjNameTable.arc")
         )
       )
-        dir.game = 2;
+        directory.game = 2;
     } else return;
-    if ((dir.game == 0) | (dir.game == false)) {
+    if ((directory.game == 0) | (directory.game == false)) {
       index.fileLocation = undefined;
-      return dir;
+      return directory;
     }
     try {
       index.galaxies = [];
       const galaxies = fs
-        .readdirSync(path.join(fileLocation, "StageData"))
+        .readdirSync(path.join(index.fileLocation, "StageData"))
         .filter((galaxy) =>
           fs
-            .lstatSync(path.join(fileLocation, "StageData", galaxy))
+            .lstatSync(path.join(index.fileLocation, "StageData", galaxy))
             .isDirectory()
         );
       galaxies.forEach((galaxy, i) => {
         if (
           fs.existsSync(
             path.join(
-              fileLocation,
+              index.fileLocation,
               "StageData",
               galaxy,
               galaxy + "Scenario.arc"
@@ -65,9 +67,9 @@ module.exports = {
       });
     } catch (e) {
       console.error(e);
-      dir.game = 0;
-      return dir;
+      directory.game = 0;
+      return directory;
     }
-    return dir;
+    return directory;
   },
 };

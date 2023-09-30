@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Kingminer7/RedStarEditor#readme",
   "dependencies": {
+    "discord-rich-presence": "^0.0.8",
     "electron-packager": "^17.1.2",
     "nodemon": "^3.0.1"
   },

@@ -8,13 +8,35 @@
     <link rel="stylesheet" href="../css/menu.css" />
   </head>
   <body>
+    <div class="titleContainer">
+      <img width="100px" height="100px" src="../assets/redstar.png" style="position: absolute; left: 0px; top: 40px;"/>
+      <span style="position: absolute; right: 0px; top: 55px;">Red Star</span>
+    </div>
     <div class="btnContainer">
-      <button class="button" id="openDirBtn" style="top:0px;">
+      <button class="button" id="openDirBtn" style="top: 0px">
         <span>Open Directory</span>
       </button>
-      <button disabled class="button" id="openDirBtn" style="top:40px;">
+      <button disabled class="button" id="editGalaxyBtn" style="top: 40px">
         <span>Edit Galaxy</span>
       </button>
+      <button
+        disabled
+        class="button"
+        id="editGalaxyBtn"
+        style="left: 100000px; top: 80px"
+      >
+        <span>Edit World Map</span>
+        <comment
+          comment="This will move into frame if Galaxy 2 is selected (once implemented)."
+        />
+      </button>
+      <button disabled class="button" id="editGalaxyBtn" style="top: 80px">
+        <span>Settings</span>
+      </button>
+      <button class="button" id="quitBtn" style="top: 120px">
+        <span>Quit</span>
+      </button>
     </div>
+    <script src="../js/menu.js"></script>
   </body>
 </html>
